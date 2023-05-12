@@ -29,7 +29,7 @@ In this set of exercises you will develop knowledge on some common commands used
 
 5. You need to debug whether a server can access an API, specifically it is this end point `https://jsonplaceholder.typicode.com/users` which returns a list of users. You want to do this just via the terminal which tool could you run and what is the command?
 
-6. You want to check the last 10 log entries from the [access.log](./access.log) file, what command do you run?
+6. You want to check the last 20 log entries from the [access.log](./access.log) file, what command do you run?
 
 7. Users are reporting that the web server is giving back a 404 status on some occassions, you need to find out how many times it has happened using a command to explore the [access.log](./access.log)
     - 💡 Hint: You will need to use the `|` pipe character with 3 different commands to get the answer
