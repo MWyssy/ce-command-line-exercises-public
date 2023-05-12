@@ -82,8 +82,42 @@ grep -c '" 404' access.log
 
 ## Exercise 2
 
-TBC
+### 1.
+
+You want to see what existing VPC's you have - what command should you run?
 
 ```
-tbc
+aws ec2 describe-vpcs
 ```
+
+- This command will list all of the current VPCs and their information.
+
+### 2.
+
+You need to make a new VPC with a CIDR range of `172.31.0.0/16` called `vpc-tr-nc-cli` - what command should you run?
+
+```
+aws ec2 create-vpc --cidr-block 172.31.0.0/16 --tag-specifications 'ResourceType=vpc,Tags=[{Key=Name,Value=vpc-tr-nc-cli}]'
+```
+
+- This command will initiate a new VPC, set it's CIDR to 172.31.0.0/16 using the --cidr-block tag, and sets it's name to 'vpc-tr-nc-cli' by using the --tag-specifications tag.
+
+### 3.
+
+You need to create a new subnet with a CIDR range of `172.31.16.0/20` within your new VPC - what command should you run?
+
+```
+aws ec2 create-subnet --vpc-id vpc-00b70b587735a16b7 --cidr-block 172.31.16.0/20
+```
+
+- This command will create the new subnet inside the new vpc (id taken from aws), and set it's cidr range using the --cidr-block tag.
+
+### 4.
+
+You need to create a new S3 bucket and upload the [index.html](./index.html) file into that bucket - what command should you run? - 🗒️ Note: Don't forget that S3 bucket names need to be globally unique
+
+```
+aws s3 mb s3://tr-nc-cli-bucket && aws s3 cp index.html s3://tr-nc-cli-bucket/index.html
+```
+
+- This command will create a new s3 bucket using the 's3 mb' command, and then appends the 's3 cp' command, using &&, to copy the index.html file to the new bucket.
